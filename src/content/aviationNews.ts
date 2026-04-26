@@ -5,8 +5,6 @@ export type AviationNewsItem = {
   summary: string;
   highlight: string;
   accent: string;
-  image?: string | null;
-  imageAlt?: string;
   publishedAt: string;
   readTime: string;
   heroTitle: string;
@@ -27,9 +25,6 @@ export const aviationNews: AviationNewsItem[] = [
       "Les transporteurs investissent davantage dans les parcours de réservation fluides, l'upsell temps réel et les interfaces self-service pour convertir plus vite.",
     highlight: "+18% de revenus additionnels sur les parcours optimisés",
     accent: "#00853F",
-    image:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1400&q=80",
-    imageAlt: "Cabine d'avion et passagers en embarquement",
     publishedAt: "26 avril 2026",
     readTime: "4 min",
     heroTitle: "Pourquoi les revenus ancillaires se jouent désormais dans l'expérience digitale",
@@ -72,9 +67,6 @@ export const aviationNews: AviationNewsItem[] = [
       "Maintenance, rotation flotte et prévision de demande convergent vers des outils d'aide à la décision connectés aux données aéroportuaires et compagnies.",
     highlight: "Maintenance et planification alimentées par la data live",
     accent: "#E8622A",
-    image:
-      "https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?auto=format&fit=crop&w=1400&q=80",
-    imageAlt: "Avion au sol avec personnel technique en opération",
     publishedAt: "26 avril 2026",
     readTime: "5 min",
     heroTitle: "Comment l'IA prédictive transforme la performance opérationnelle des acteurs aériens",
@@ -117,9 +109,6 @@ export const aviationNews: AviationNewsItem[] = [
       "Les acteurs régionaux cherchent à rapprocher distribution moderne, moyens de paiement locaux et réactivité commerciale pour mieux servir diaspora et voyageurs domestiques.",
     highlight: "Paiement local et distribution internationale réunis",
     accent: "#E31B23",
-    image:
-      "https://images.unsplash.com/photo-1529074963764-98f45c47344b?auto=format&fit=crop&w=1400&q=80",
-    imageAlt: "Voyageuse dans un terminal d'aéroport consultant son mobile",
     publishedAt: "26 avril 2026",
     readTime: "4 min",
     heroTitle: "Pourquoi NDC et mobile money redessinent la distribution aérienne régionale",

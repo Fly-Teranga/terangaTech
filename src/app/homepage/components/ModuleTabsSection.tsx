@@ -4,39 +4,66 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Icon from "@/components/ui/AppIcon";
 import AppImage from "@/components/ui/AppImage";
-import type { ServiceOffer } from "@/content/serviceOffers";
 
-type ModuleTabsSectionProps = {
-  services: ServiceOffer[];
-};
+const tabs = [
+  {
+    id: "billetterie",
+    label: "Billetterie SaaS",
+    color: "#00853F",
+    icon: "TicketIcon",
+    headline: "Vendez des billets d'avion en ligne",
+    sub: "Digitalisez votre agence de voyage ou compagnie en 7 jours. Accedez au canal digital africain et international.",
+    image: "https://images.unsplash.com/photo-1690169309476-19b13633141b",
+    features: [
+      { icon: "BoltIcon", label: "Deploiement 7 jours" },
+      { icon: "ClockIcon", label: "Moteur reservation temps reel" },
+      { icon: "GlobeAltIcon", label: "Integration GDS / NDC" },
+      { icon: "DevicePhoneMobileIcon", label: "Paiement mobile money & carte" },
+      { icon: "DocumentTextIcon", label: "E-ticket & check-in mobile" },
+      { icon: "ChartBarIcon", label: "Dashboard revenus live" },
+    ],
+    metric: { value: "7j", label: "mise en ligne" },
+  },
+  {
+    id: "ia",
+    label: "Aeronautique & IA",
+    color: "#FDEF42",
+    icon: "CpuChipIcon",
+    headline: "Aeronautique & Intelligence Artificielle",
+    sub: "Nous developpons des solutions technologiques avancees dediees aux compagnies aeriennes et aux acteurs du transport, integrant l'intelligence artificielle pour optimiser la performance commerciale et operationnelle.",
+    image: "https://images.unsplash.com/photo-1644987708868-1a97a5341ec3",
+    features: [
+      { icon: "CurrencyDollarIcon", label: "Revenue Management & tarification intelligente" },
+      { icon: "ChartBarSquareIcon", label: "Veille tarifaire automatisee en temps reel" },
+      { icon: "PresentationChartLineIcon", label: "RMS: optimisation dynamique des tarifs et du remplissage" },
+      { icon: "UsersIcon", label: "Gestion automatisee des reservations groupes" },
+      { icon: "ArchiveBoxIcon", label: "Solution cargo intelligente et remplissage optimise" },
+      { icon: "SparklesIcon", label: "Distribution SaaS, NDC et personnalisation par l'IA" },
+    ],
+    metric: { value: "NDC", label: "distribution intelligente" },
+  },
+  {
+    id: "assuretech",
+    label: "AssureTech Voyage",
+    color: "#E31B23",
+    icon: "ShieldCheckIcon",
+    headline: "Assurance voyage digitalisee",
+    sub: "Pour compagnies d'assurance et aeriennes. Proposez, gerez et indemnisez l'assurance voyage au point de vente du billet.",
+    image: "https://img.rocket.new/generatedImages/rocket_gen_img_10761c133-1772293794587.png",
+    features: [
+      { icon: "BoltIcon", label: "Souscription instantanee" },
+      { icon: "ComputerDesktopIcon", label: "Gestion sinistres en ligne" },
+      { icon: "XCircleIcon", label: "Couverture annulation vol" },
+      { icon: "UserCircleIcon", label: "Portail passager self-service" },
+      { icon: "DocumentChartBarIcon", label: "Reporting actuariel live" },
+    ],
+    metric: { value: "100%", label: "digital, zero papier" },
+  },
+];
 
-export default function ModuleTabsSection({
-  services,
-}: ModuleTabsSectionProps) {
+export default function ModuleTabsSection() {
   const [activeTab, setActiveTab] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const tabs = services.map((service) => ({
-    id: service.id,
-    label:
-      service.slug === "ia"
-        ? "Aeronautique & IA"
-        : service.slug === "billetterie"
-          ? "Billetterie SaaS"
-          : "AssureTech Voyage",
-    color: service.color,
-    icon: service.icon,
-    headline: service.headline,
-    sub: service.description,
-    image: service.image || "https://images.unsplash.com/photo-1644987708868-1a97a5341ec3",
-    features: service.features.map((feature) => ({
-      icon: feature.icon,
-      label: feature.label,
-    })),
-    metric: {
-      value: service.metric.value,
-      label: service.metric.label,
-    },
-  }));
 
   useEffect(() => {
     const observer = new IntersectionObserver(

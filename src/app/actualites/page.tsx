@@ -3,12 +3,9 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Icon from "@/components/ui/AppIcon";
-import AppImage from "@/components/ui/AppImage";
-import { getAllActualites } from "@/sanity/lib/content";
+import { aviationNews } from "@/content/aviationNews";
 
-export default async function ActualitesPage() {
-  const aviationNews = await getAllActualites();
-
+export default function ActualitesPage() {
   return (
     <main className="min-h-screen bg-white">
       <Header />
@@ -37,18 +34,6 @@ export default async function ActualitesPage() {
               href={`/actualites/${item.slug}`}
               className="shadow-card hover:shadow-card-hover group rounded-3xl border border-black/8 bg-light-bg p-9 transition-all duration-300 hover:-translate-y-1"
             >
-              {item.image ? (
-                <div className="mb-7 overflow-hidden rounded-[1.75rem]">
-                  <AppImage
-                    src={item.image}
-                    alt={item.imageAlt || item.title}
-                    width={1200}
-                    height={760}
-                    className="h-60 w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    sizes="(max-width: 1280px) 100vw, 33vw"
-                  />
-                </div>
-              ) : null}
               <div className="mb-6 flex items-center justify-between gap-4">
                 <span
                   className="rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest"

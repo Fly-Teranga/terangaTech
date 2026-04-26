@@ -5,16 +5,13 @@ import ServicesHero from "./components/ServicesHero";
 import ServicesModules from "./components/ServicesModules";
 import ServicesAudience from "./components/ServicesAudience";
 import ServicesCTA from "./components/ServicesCTA";
-import { getAllServices } from "@/sanity/lib/content";
 
-export default async function Services() {
-  const services = await getAllServices();
-
+export default function Services() {
   return (
     <main className="min-h-screen bg-white">
       <Header />
       <ServicesHero />
-      <ServicesModules services={services} />
+      <ServicesModules />
       <ServicesAudience />
       <ServicesCTA />
       <Footer />

@@ -3,8 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import Icon from "@/components/ui/AppIcon";
-import AppImage from "@/components/ui/AppImage";
-import type { AviationNewsItem } from "@/content/aviationNews";
+import { aviationNews } from "@/content/aviationNews";
 
 const sectorSignals = [
   "Hausse des attentes sur les paiements locaux et le remboursement rapide",
@@ -12,13 +11,7 @@ const sectorSignals = [
   "Pilotage commercial plus fin grâce aux données tarifaires en continu",
 ];
 
-type AviationNewsSectionProps = {
-  items: AviationNewsItem[];
-};
-
-export default function AviationNewsSection({
-  items,
-}: AviationNewsSectionProps) {
+export default function AviationNewsSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -83,25 +76,13 @@ export default function AviationNewsSection({
 
         <div className="grid gap-6 xl:grid-cols-[1.3fr_0.7fr]">
           <div className="grid gap-6 md:grid-cols-3">
-            {items.map((item, index) => (
+            {aviationNews.map((item, index) => (
               <Link
                 key={item.slug}
                 href={`/actualites/${item.slug}`}
                 className="reveal-scale shadow-card hover:shadow-card-hover group rounded-3xl border border-black/8 bg-light-bg p-7 transition-all duration-300 hover:-translate-y-1 hover:border-black/12"
                 style={{ transitionDelay: `${index * 110}ms` }}
               >
-                {item.image ? (
-                  <div className="mb-5 overflow-hidden rounded-[1.5rem]">
-                    <AppImage
-                      src={item.image}
-                      alt={item.imageAlt || item.title}
-                      width={1200}
-                      height={760}
-                      className="h-52 w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                  </div>
-                ) : null}
                 <div className="mb-5 flex items-center justify-between gap-4">
                   <span
                     className="rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest"
@@ -135,10 +116,6 @@ export default function AviationNewsSection({
                   }}
                 >
                   {item.highlight}
-                </div>
-
-                <div className="text-text-light mb-5 text-[11px] uppercase tracking-[0.16em]">
-                  Publie le {item.publishedAt}
                 </div>
 
                 <div
