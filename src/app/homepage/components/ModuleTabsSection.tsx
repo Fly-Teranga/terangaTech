@@ -12,12 +12,12 @@ const tabs = [
     color: "#00853F",
     icon: "TicketIcon",
     headline: "Vendez des billets d'avion en ligne",
-    sub: "Digitalisez votre agence de voyage ou compagnie en 7 jours. Accédez au canal digital africain et international.",
+    sub: "Digitalisez votre agence de voyage ou compagnie en 7 jours. Accedez au canal digital africain et international.",
     image: "https://images.unsplash.com/photo-1690169309476-19b13633141b",
     features: [
-      { icon: "BoltIcon", label: "Déploiement 7 jours" },
-      { icon: "ClockIcon", label: "Moteur réservation temps réel" },
-      { icon: "GlobeAltIcon", label: "Intégration GDS / NDC" },
+      { icon: "BoltIcon", label: "Deploiement 7 jours" },
+      { icon: "ClockIcon", label: "Moteur reservation temps reel" },
+      { icon: "GlobeAltIcon", label: "Integration GDS / NDC" },
       { icon: "DevicePhoneMobileIcon", label: "Paiement mobile money & carte" },
       { icon: "DocumentTextIcon", label: "E-ticket & check-in mobile" },
       { icon: "ChartBarIcon", label: "Dashboard revenus live" },
@@ -26,18 +26,18 @@ const tabs = [
   },
   {
     id: "ia",
-    label: "Aéronautique & IA",
+    label: "Aeronautique & IA",
     color: "#FDEF42",
     icon: "CpuChipIcon",
-    headline: "Aéronautique & Intelligence Artificielle",
-    sub: "Nous développons des solutions technologiques avancées dédiées aux compagnies aériennes et aux acteurs du transport, intégrant l'intelligence artificielle pour optimiser la performance commerciale et opérationnelle.",
+    headline: "Aeronautique & Intelligence Artificielle",
+    sub: "Nous developpons des solutions technologiques avancees dediees aux compagnies aeriennes et aux acteurs du transport, integrant l'intelligence artificielle pour optimiser la performance commerciale et operationnelle.",
     image: "https://images.unsplash.com/photo-1644987708868-1a97a5341ec3",
     features: [
       { icon: "CurrencyDollarIcon", label: "Revenue Management & tarification intelligente" },
-      { icon: "ChartBarSquareIcon", label: "Veille tarifaire automatisée en temps réel" },
+      { icon: "ChartBarSquareIcon", label: "Veille tarifaire automatisee en temps reel" },
       { icon: "PresentationChartLineIcon", label: "RMS: optimisation dynamique des tarifs et du remplissage" },
-      { icon: "UsersIcon", label: "Gestion automatisée des réservations groupes" },
-      { icon: "ArchiveBoxIcon", label: "Solution cargo intelligente et remplissage optimisé" },
+      { icon: "UsersIcon", label: "Gestion automatisee des reservations groupes" },
+      { icon: "ArchiveBoxIcon", label: "Solution cargo intelligente et remplissage optimise" },
       { icon: "SparklesIcon", label: "Distribution SaaS, NDC et personnalisation par l'IA" },
     ],
     metric: { value: "NDC", label: "distribution intelligente" },
@@ -80,21 +80,21 @@ export default function ModuleTabsSection() {
   const active = tabs[activeTab];
 
   return (
-    <section ref={sectionRef} className="bg-light-bg px-6 py-24">
+    <section ref={sectionRef} className="bg-light-bg px-6 py-28">
       <div className="mx-auto max-w-7xl">
-        <div className="reveal mb-12 text-center">
-          <span className="text-vert text-xs font-semibold uppercase tracking-[0.2em]">En détail</span>
-          <h2 className="font-display text-text-dark mt-3 text-4xl font-bold tracking-tight md:text-5xl">Explorez chaque module</h2>
+        <div className="reveal mb-14 text-center">
+          <span className="text-vert text-xs font-semibold uppercase tracking-[0.2em]">En detail</span>
+          <h2 className="font-display text-text-dark mt-4 text-3xl font-bold tracking-tight md:text-4xl">Explorez chaque module</h2>
         </div>
 
-        <div className="reveal mb-12 flex flex-wrap justify-center gap-2">
+        <div className="reveal mb-14 flex flex-wrap justify-center gap-3">
           {tabs.map((tab, i) => (
             <button
               key={tab.id}
               type="button"
               onClick={() => setActiveTab(i)}
               aria-pressed={activeTab === i}
-              className={`flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-semibold transition-all duration-300 ${
+              className={`flex items-center gap-2 rounded-full border px-5 py-3 text-sm font-semibold transition-all duration-300 ${
                 activeTab === i
                   ? "scale-[1.02] border-transparent shadow-card"
                   : "border-black/8 bg-white text-text-muted hover:border-vert/30 hover:text-text-dark"
@@ -114,7 +114,7 @@ export default function ModuleTabsSection() {
           ))}
         </div>
 
-        <div className="grid items-center gap-8 rounded-[2rem] transition-all duration-300 lg:grid-cols-2">
+        <div className="grid items-center gap-12 rounded-[2rem] transition-all duration-300 lg:grid-cols-2">
           <div className="flex flex-col justify-between">
             <div>
               <div className="mb-6 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-widest" style={{ background: `${active.color}12`, color: active.color, border: `1px solid ${active.color}30` }}>
@@ -122,33 +122,33 @@ export default function ModuleTabsSection() {
                 {active.label}
               </div>
 
-              <h3 className="font-display text-text-dark mb-4 text-3xl font-bold tracking-tight md:text-4xl">{active.headline}</h3>
-              <p className="text-text-muted mb-8 text-base leading-relaxed font-light">{active.sub}</p>
+              <h3 className="font-display text-text-dark mb-5 text-2xl font-bold tracking-tight md:text-3xl">{active.headline}</h3>
+              <p className="text-text-muted mb-10 max-w-xl text-sm leading-8 font-light md:text-base">{active.sub}</p>
 
-              <div className="shadow-card mb-8 inline-flex items-center gap-3 rounded-2xl border bg-white px-5 py-3" style={{ borderColor: `${active.color}25` }}>
-                <span className="font-display text-2xl font-bold" style={{ color: active.color }}>{active.metric.value}</span>
+              <div className="shadow-card mb-10 inline-flex items-center gap-3 rounded-2xl border bg-white px-5 py-3.5" style={{ borderColor: `${active.color}25` }}>
+                <span className="font-display text-xl font-bold" style={{ color: active.color }}>{active.metric.value}</span>
                 <span className="text-text-muted text-xs uppercase tracking-wider">{active.metric.label}</span>
               </div>
 
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {active.features.map((feature) => (
                   <div key={feature.label} className="group flex items-center gap-3">
                     <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg" style={{ background: `${active.color}12` }}>
                       <Icon name={feature.icon} size={14} style={{ color: active.color }} />
                     </div>
-                    <span className="text-text-dark text-sm font-medium">{feature.label}</span>
+                    <span className="text-text-dark text-sm leading-6 font-medium">{feature.label}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <Link href="/contact" className="mt-8 inline-flex w-fit items-center gap-3 text-sm font-semibold uppercase tracking-wider transition-all duration-300 hover:gap-4" style={{ color: active.color }}>
-              Planifier une démo
+            <Link href="/contact" className="mt-10 inline-flex w-fit items-center gap-3 text-sm font-semibold uppercase tracking-wider transition-all duration-300 hover:gap-4" style={{ color: active.color }}>
+              Planifier une demo
               <Icon name="ArrowRightIcon" size={14} />
             </Link>
           </div>
 
-          <div className="shadow-card group relative h-[380px] overflow-hidden rounded-3xl border border-black/8 md:h-[440px]">
+          <div className="shadow-card group relative h-[360px] overflow-hidden rounded-3xl border border-black/8 md:h-[420px]">
             <AppImage src={active.image} alt={active.label} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 1024px) 100vw, 50vw" />
             <div className="absolute inset-0" style={{ background: `linear-gradient(to top, ${active.color}25 0%, transparent 60%)` }} />
             <div className="absolute right-5 bottom-5 left-5 flex items-center gap-3 rounded-2xl border border-black/8 bg-white/90 px-4 py-3 backdrop-blur-sm">

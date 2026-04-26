@@ -27,20 +27,20 @@ export default function HomeDemoSection() {
   };
 
   return (
-    <section ref={sectionRef} className="border-black/6 bg-white px-6 py-24 border-t">
+    <section ref={sectionRef} className="border-black/6 bg-white px-6 py-28 border-t">
       <div className="mx-auto max-w-7xl">
-        <div className="grid items-center gap-16 lg:grid-cols-2">
+        <div className="grid items-center gap-20 lg:grid-cols-2">
           <div className="reveal-left">
             <div className="mb-6 flex items-center gap-3">
               <span className="bg-orange h-px w-8" />
               <span className="text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: "#E8622A" }}>Passez a l&apos;action</span>
             </div>
-            <h2 className="font-display text-text-dark mb-6 text-4xl font-bold tracking-tight md:text-5xl">
+            <h2 className="font-display text-text-dark mb-7 text-3xl font-bold tracking-tight md:text-4xl">
               Planifiez votre
               <br />
               <span className="text-gradient-vert">demo gratuite.</span>
             </h2>
-            <p className="text-text-muted mb-10 text-base leading-relaxed font-light">
+            <p className="text-text-muted mb-12 max-w-xl text-sm leading-8 font-light md:text-base">
               Nos experts vous presentent la solution adaptee a votre activite - compagnie aerienne, agence de voyage ou assureur.
             </p>
 
@@ -73,7 +73,7 @@ export default function HomeDemoSection() {
                 </Link>
               </div>
             ) : (
-              <div className="bg-light-bg shadow-card rounded-3xl border border-black/8 p-8 md:p-10">
+              <div className="bg-light-bg shadow-card rounded-3xl border border-black/8 p-8 md:p-11">
                 <h3 className="font-display text-text-dark mb-2 text-xl font-bold">Planifier une demo</h3>
                 <p className="text-text-muted mb-8 text-sm">Reponse sous 24h ouvrees.</p>
                 <form onSubmit={handleSubmit} className="space-y-5">

@@ -9,30 +9,30 @@ export default function ActualitesPage() {
   return (
     <main className="min-h-screen bg-white">
       <Header />
-      <section className="border-b border-black/6 bg-light-bg px-6 pt-32 pb-18">
+      <section className="border-b border-black/6 bg-light-bg px-6 pt-32 pb-24">
         <div className="mx-auto max-w-7xl">
           <div className="mb-4 flex items-center gap-3">
             <span className="bg-orange h-px w-8" />
             <span className="text-orange text-xs font-semibold uppercase tracking-[0.2em]">
-              Actualités
+              Actualites
             </span>
           </div>
-          <h1 className="font-display text-text-dark max-w-4xl text-4xl font-bold tracking-tight md:text-6xl">
-            Veille aéronautique, signaux marché et analyses stratégiques.
+          <h1 className="font-display text-text-dark max-w-4xl text-3xl font-bold tracking-tight md:text-5xl">
+            Veille aeronautique, signaux marche et analyses strategiques.
           </h1>
-          <p className="text-text-muted mt-6 max-w-2xl text-base leading-relaxed font-light">
-            Une lecture métier des tendances qui transforment la distribution,
-            les opérations et l&apos;expérience passager.
+          <p className="text-text-muted mt-7 max-w-2xl text-sm leading-8 font-light md:text-base">
+            Une lecture metier des tendances qui transforment la distribution,
+            les operations et l&apos;experience passager.
           </p>
         </div>
       </section>
-      <section className="bg-white px-6 py-20">
-        <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <section className="bg-white px-6 py-24">
+        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-2 xl:grid-cols-3">
           {aviationNews.map((item) => (
             <Link
               key={item.slug}
               href={`/actualites/${item.slug}`}
-              className="shadow-card hover:shadow-card-hover group rounded-3xl border border-black/8 bg-light-bg p-8 transition-all duration-300 hover:-translate-y-1"
+              className="shadow-card hover:shadow-card-hover group rounded-3xl border border-black/8 bg-light-bg p-9 transition-all duration-300 hover:-translate-y-1"
             >
               <div className="mb-6 flex items-center justify-between gap-4">
                 <span
@@ -49,10 +49,10 @@ export default function ActualitesPage() {
                   {item.readTime}
                 </span>
               </div>
-              <h2 className="font-display text-text-dark mb-4 text-3xl font-bold leading-tight">
+              <h2 className="font-display text-text-dark mb-4 text-2xl font-bold leading-tight">
                 {item.title}
               </h2>
-              <p className="text-text-muted mb-5 text-sm leading-relaxed font-light">
+              <p className="text-text-muted mb-6 text-sm leading-7 font-light">
                 {item.summary}
               </p>
               <div
@@ -66,13 +66,13 @@ export default function ActualitesPage() {
                 {item.highlight}
               </div>
               <div className="text-text-light mb-6 text-xs uppercase tracking-wider">
-                Publié le {item.publishedAt}
+                Publie le {item.publishedAt}
               </div>
               <div
                 className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 group-hover:gap-3"
                 style={{ color: item.accent }}
               >
-                Lire l&apos;analyse complète
+                Lire l&apos;analyse complete
                 <Icon name="ArrowRightIcon" size={13} />
               </div>
             </Link>

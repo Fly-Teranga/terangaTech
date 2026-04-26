@@ -63,15 +63,15 @@ export default function ModulesBentoSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-light-bg px-6 py-24">
+    <section ref={sectionRef} className="bg-light-bg px-6 py-28">
       <div className="mx-auto max-w-7xl">
-        <div className="reveal mb-14">
+        <div className="reveal mb-16">
           <div className="mb-4 flex items-center gap-3">
             <span className="bg-vert h-px w-8" />
             <span className="text-vert text-xs font-semibold uppercase tracking-[0.2em]">Nos modules</span>
           </div>
-          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-            <h2 className="font-display text-text-dark max-w-xl text-4xl font-bold tracking-tight md:text-5xl">
+          <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+            <h2 className="font-display text-text-dark max-w-2xl text-3xl font-bold tracking-tight md:text-4xl">
               3 modules de vol.
               <br />
               <span className="text-text-muted font-normal">Une seule plateforme.</span>
@@ -83,7 +83,7 @@ export default function ModulesBentoSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
           {modules.map((mod, idx) => (
             <Link key={mod.id} href={mod.href} className={`reveal-scale shadow-card hover:shadow-card-hover group relative overflow-hidden rounded-3xl border border-black/8 bg-white transition-all duration-500 hover:border-vert/20 ${mod.colSpan}`} style={{ transitionDelay: `${idx * 120}ms` }}>
               {mod.image ? (
@@ -107,7 +107,7 @@ export default function ModulesBentoSection() {
                 </svg>
               </div>
 
-              <div className={`relative z-10 flex flex-col justify-between p-8 ${mod.large ? "min-h-[320px]" : "min-h-[280px]"}`}>
+              <div className={`relative z-10 flex flex-col justify-between p-9 ${mod.large ? "min-h-[340px]" : "min-h-[300px]"}`}>
                 <div>
                   <div className="mb-6 flex items-center justify-between">
                     <span className="rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest" style={{ background: `${mod.accentColor}15`, color: mod.accentColor, border: `1px solid ${mod.accentColor}30` }}>
@@ -118,10 +118,10 @@ export default function ModulesBentoSection() {
                     </div>
                   </div>
 
-                  <h3 className="font-display text-text-dark mb-2 text-2xl font-bold tracking-tight">{mod.title}</h3>
-                  <p className="text-text-muted mb-6 text-sm leading-relaxed font-light">{mod.description}</p>
+                  <h3 className="font-display text-text-dark mb-3 text-xl font-bold tracking-tight md:text-2xl">{mod.title}</h3>
+                  <p className="text-text-muted mb-7 text-sm leading-7 font-light">{mod.description}</p>
 
-                  <div className={`grid gap-2 ${mod.large && mod.colSpan === "lg:col-span-3" ? "grid-cols-2 md:grid-cols-3" : "grid-cols-1"}`}>
+                  <div className={`grid gap-3 ${mod.large && mod.colSpan === "lg:col-span-3" ? "grid-cols-2 md:grid-cols-3" : "grid-cols-1"}`}>
                     {mod.features.map((feature) => (
                       <div key={feature} className="flex items-center gap-2">
                         <span className="h-1 w-1 flex-shrink-0 rounded-full" style={{ background: mod.accentColor }} />
@@ -131,7 +131,7 @@ export default function ModulesBentoSection() {
                   </div>
                 </div>
 
-                <div className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 group-hover:gap-3" style={{ color: mod.accentColor }}>
+                <div className="mt-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 group-hover:gap-3" style={{ color: mod.accentColor }}>
                   En savoir plus
                   <Icon name="ArrowRightIcon" size={13} />
                 </div>
