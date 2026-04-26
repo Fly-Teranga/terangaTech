@@ -12,12 +12,12 @@ const tabs = [
     color: "#00853F",
     icon: "TicketIcon",
     headline: "Vendez des billets d'avion en ligne",
-    sub: "Digitalisez votre agence de voyage ou compagnie en 7 jours. Accedez au canal digital africain et international.",
+    sub: "Digitalisez votre agence de voyage ou compagnie en 7 jours. Accédez au canal digital africain et international.",
     image: "https://images.unsplash.com/photo-1690169309476-19b13633141b",
     features: [
-      { icon: "BoltIcon", label: "Deploiement 7 jours" },
-      { icon: "ClockIcon", label: "Moteur reservation temps reel" },
-      { icon: "GlobeAltIcon", label: "Integration GDS / NDC" },
+      { icon: "BoltIcon", label: "Déploiement 7 jours" },
+      { icon: "ClockIcon", label: "Moteur réservation temps réel" },
+      { icon: "GlobeAltIcon", label: "Intégration GDS / NDC" },
       { icon: "DevicePhoneMobileIcon", label: "Paiement mobile money & carte" },
       { icon: "DocumentTextIcon", label: "E-ticket & check-in mobile" },
       { icon: "ChartBarIcon", label: "Dashboard revenus live" },
@@ -26,21 +26,21 @@ const tabs = [
   },
   {
     id: "ia",
-    label: "Logiciels IA",
+    label: "Aéronautique & IA",
     color: "#FDEF42",
     icon: "CpuChipIcon",
-    headline: "IA pour l'optimisation aeronautique",
-    sub: "Pricing dynamique, prevision de la demande, maintenance predictive. Automatisez et optimisez chaque operation.",
+    headline: "Aéronautique & Intelligence Artificielle",
+    sub: "Nous développons des solutions technologiques avancées dédiées aux compagnies aériennes et aux acteurs du transport, intégrant l'intelligence artificielle pour optimiser la performance commerciale et opérationnelle.",
     image: "https://images.unsplash.com/photo-1644987708868-1a97a5341ec3",
     features: [
-      { icon: "CurrencyDollarIcon", label: "Pricing dynamique IA" },
-      { icon: "ChartPieIcon", label: "Prevision de la demande" },
-      { icon: "WrenchScrewdriverIcon", label: "Maintenance predictive" },
-      { icon: "ArrowPathIcon", label: "Gestion rotations appareils" },
-      { icon: "CodeBracketIcon", label: "API compagnies & aeroports" },
-      { icon: "ShieldCheckIcon", label: "Conformite reglementaire" },
+      { icon: "CurrencyDollarIcon", label: "Revenue Management & tarification intelligente" },
+      { icon: "ChartBarSquareIcon", label: "Veille tarifaire automatisée en temps réel" },
+      { icon: "PresentationChartLineIcon", label: "RMS: optimisation dynamique des tarifs et du remplissage" },
+      { icon: "UsersIcon", label: "Gestion automatisée des réservations groupes" },
+      { icon: "ArchiveBoxIcon", label: "Solution cargo intelligente et remplissage optimisé" },
+      { icon: "SparklesIcon", label: "Distribution SaaS, NDC et personnalisation par l'IA" },
     ],
-    metric: { value: "+24%", label: "efficacite operationnelle" },
+    metric: { value: "NDC", label: "distribution intelligente" },
   },
   {
     id: "assuretech",
@@ -83,7 +83,7 @@ export default function ModuleTabsSection() {
     <section ref={sectionRef} className="bg-light-bg px-6 py-24">
       <div className="mx-auto max-w-7xl">
         <div className="reveal mb-12 text-center">
-          <span className="text-vert text-xs font-semibold uppercase tracking-[0.2em]">En detail</span>
+          <span className="text-vert text-xs font-semibold uppercase tracking-[0.2em]">En détail</span>
           <h2 className="font-display text-text-dark mt-3 text-4xl font-bold tracking-tight md:text-5xl">Explorez chaque module</h2>
         </div>
 
@@ -143,7 +143,7 @@ export default function ModuleTabsSection() {
             </div>
 
             <Link href="/contact" className="mt-8 inline-flex w-fit items-center gap-3 text-sm font-semibold uppercase tracking-wider transition-all duration-300 hover:gap-4" style={{ color: active.color }}>
-              Planifier une demo
+              Planifier une démo
               <Icon name="ArrowRightIcon" size={14} />
             </Link>
           </div>

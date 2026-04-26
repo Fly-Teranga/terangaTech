@@ -1,0 +1,32 @@
+
+> terangatech@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.3 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.139:3000
+✓ Ready in 684ms
+Creating turbopack project {
+  dir: 'C:\\Users\\Hp Laptop\\Desktop\\front_teranga\\TerangaTech',
+  testMode: true
+}
+
+ GET / 200 in 725ms (next.js: 321ms, application-code: 405ms)
+ GET /homepage 200 in 524ms (next.js: 337ms, application-code: 187ms)
+ GET /services 200 in 236ms (next.js: 124ms, application-code: 112ms)
+ GET /contact 200 in 272ms (next.js: 152ms, application-code: 121ms)
+ GET /homepage 200 in 144ms (next.js: 10ms, application-code: 134ms)
+ GET /services 200 in 98ms (next.js: 8ms, application-code: 90ms)
+ GET /contact 200 in 68ms (next.js: 10ms, application-code: 58ms)
+ GET /homepage 200 in 65ms (next.js: 6ms, application-code: 59ms)
+ GET /services 200 in 1212ms (next.js: 188ms, application-code: 1024ms)
+ GET /contact 200 in 7.3s (next.js: 1533ms, application-code: 5.8s)
+ GET /homepage 200 in 1701ms (next.js: 99ms, application-code: 1602ms)
+ GET /services 200 in 883ms (next.js: 79ms, application-code: 804ms)
+ GET /homepage 200 in 118ms (next.js: 9ms, application-code: 109ms)
+ GET /services 200 in 251ms (next.js: 20ms, application-code: 232ms)
+ GET /contact 200 in 2.3s (next.js: 312ms, application-code: 1952ms)
+ GET /contact 200 in 294ms (next.js: 8ms, application-code: 286ms)
+ GET /homepage 200 in 130ms (next.js: 17ms, application-code: 113ms)
+ GET /services 200 in 76ms (next.js: 14ms, application-code: 62ms)
+ GET /contact 200 in 100ms (next.js: 14ms, application-code: 86ms)
