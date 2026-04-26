@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Icon from "@/components/ui/AppIcon";
-import { aviationNews, getAviationNewsBySlug } from "@/content/aviationNews";
+import AppImage from "@/components/ui/AppImage";
+import { getAllActualites, getActualiteBySlug } from "@/sanity/lib/content";
 
 type PageProps = {
   params: Promise<{
@@ -12,13 +13,14 @@ type PageProps = {
   }>;
 };
 
-export function generateStaticParams() {
-  return aviationNews.map((item) => ({ slug: item.slug }));
+export async function generateStaticParams() {
+  const items = await getAllActualites();
+  return items.map((item) => ({ slug: item.slug }));
 }
 
 export default async function ActualiteDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const article = getAviationNewsBySlug(slug);
+  const article = await getActualiteBySlug(slug);
 
   if (!article) notFound();
 
@@ -58,6 +60,19 @@ export default async function ActualiteDetailPage({ params }: PageProps) {
           <p className="text-text-muted mt-6 max-w-3xl text-lg leading-relaxed font-light">
             {article.intro}
           </p>
+          {article.image ? (
+            <div className="mt-10 overflow-hidden rounded-[2rem] border border-black/6">
+              <AppImage
+                src={article.image}
+                alt={article.imageAlt || article.title}
+                width={1600}
+                height={900}
+                className="h-[300px] w-full object-cover md:h-[420px]"
+                sizes="(max-width: 1024px) 100vw, 1100px"
+                priority
+              />
+            </div>
+          ) : null}
         </div>
       </section>
       <section className="bg-light-bg px-6 py-16">

@@ -7,16 +7,22 @@ import AviationNewsSection from "./components/AviationNewsSection";
 import StatsSection from "./components/StatsSection";
 import ModuleTabsSection from "./components/ModuleTabsSection";
 import HomeDemoSection from "./components/HomeDemoSection";
+import { getAllActualites, getAllServices } from "@/sanity/lib/content";
 
-export default function Homepage() {
+export default async function Homepage() {
+  const [actualites, services] = await Promise.all([
+    getAllActualites(),
+    getAllServices(),
+  ]);
+
   return (
     <main className="min-h-screen bg-white">
       <Header />
       <HeroSection />
-      <ModulesBentoSection />
-      <AviationNewsSection />
+      <ModulesBentoSection services={services} />
+      <AviationNewsSection items={actualites} />
       <StatsSection />
-      <ModuleTabsSection />
+      <ModuleTabsSection services={services} />
       <HomeDemoSection />
       <Footer />
     </main>

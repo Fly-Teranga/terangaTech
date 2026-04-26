@@ -4,51 +4,32 @@ import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import Icon from "@/components/ui/AppIcon";
 import AppImage from "@/components/ui/AppImage";
+import type { ServiceOffer } from "@/content/serviceOffers";
 
-const modules = [
-  {
-    id: "billetterie",
-    tag: "SaaS",
-    title: "Billetterie Aerienne",
-    description: "Digitalisez votre agence ou compagnie. Moteur de reservation temps reel, integration GDS/NDC, paiement mobile money, e-ticket et dashboard revenus live.",
-    features: ["Deploiement 7 jours", "Moteur temps reel", "GDS / NDC", "Mobile Money", "E-ticket & check-in", "Dashboard live"],
-    icon: "TicketIcon",
-    accentColor: "#00853F",
-    image: "https://images.unsplash.com/photo-1698851580098-00afba42cba2",
-    colSpan: "lg:col-span-2",
-    large: true,
-    href: "/services#billetterie",
-  },
-  {
-    id: "ia",
-    tag: "IA",
-    title: "Logiciels Aeronautiques & IA",
-    description: "Pricing dynamique, prevision de la demande, maintenance predictive, gestion rotations appareils, API compagnies & aeroports.",
-    features: ["Pricing IA", "Prevision demande", "Maintenance predictive", "API compagnies"],
-    icon: "CpuChipIcon",
-    accentColor: "#FDEF42",
-    image: null,
-    colSpan: "lg:col-span-1",
-    large: false,
-    href: "/services#ia",
-  },
-  {
-    id: "assuretech",
-    tag: "SaaS",
-    title: "AssureTech Voyage",
-    description: "Souscription instantanee, gestion sinistres en ligne, portail passager self-service, reporting actuariel live.",
-    features: ["Souscription instantanee", "Gestion sinistres", "Couverture annulation", "Portail passager", "Reporting actuariel"],
-    icon: "ShieldCheckIcon",
-    accentColor: "#E31B23",
-    image: "https://img.rocket.new/generatedImages/rocket_gen_img_16487e85a-1772083479313.png",
-    colSpan: "lg:col-span-3",
-    large: true,
-    href: "/services#assuretech",
-  },
-];
+type ModulesBentoSectionProps = {
+  services: ServiceOffer[];
+};
 
-export default function ModulesBentoSection() {
+export default function ModulesBentoSection({
+  services,
+}: ModulesBentoSectionProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const modules = services.slice(0, 3).map((service, idx) => ({
+    id: service.id,
+    tag: service.tag,
+    title: service.title.replace(" SaaS", ""),
+    description: service.description,
+    features: service.features
+      .slice(0, service.slug === "assuretech" ? 5 : 6)
+      .map((feature) => feature.label),
+    icon: service.icon,
+    accentColor: service.color,
+    image: service.image,
+    colSpan:
+      idx === 0 ? "lg:col-span-2" : idx === 1 ? "lg:col-span-1" : "lg:col-span-3",
+    large: idx !== 1,
+    href: `/services#${service.slug}`,
+  }));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
