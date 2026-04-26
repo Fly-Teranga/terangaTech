@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 const navLinks = [
   { label: "Accueil", href: "/homepage" },
   { label: "Services", href: "/services" },
+  { label: "Actualités", href: "/actualites" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -41,6 +42,9 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  const isActiveLink = (href: string) =>
+    href === "/actualites" ? pathname.startsWith("/actualites") : pathname === href;
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -66,7 +70,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-300 ${
-                  pathname === link.href
+                  isActiveLink(link.href)
                     ? "bg-vert text-white shadow-sm"
                     : "text-text-muted hover:text-text-dark hover:bg-white"
                 }`}
@@ -112,7 +116,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 className={`rounded-2xl px-5 py-4 text-lg font-medium transition-all duration-300 ${
-                  pathname === link.href
+                  isActiveLink(link.href)
                     ? "bg-vert text-white"
                     : "text-text-dark hover:bg-vert/5 hover:text-vert"
                 }`}

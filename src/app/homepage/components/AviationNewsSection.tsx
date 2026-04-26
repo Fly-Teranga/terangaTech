@@ -3,38 +3,12 @@
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import Icon from "@/components/ui/AppIcon";
-
-const featuredNews = [
-  {
-    category: "Compagnies",
-    title: "Le digital devient un levier direct de revenus ancillaires",
-    summary:
-      "Les transporteurs investissent davantage dans les parcours de reservation fluides, l'upsell temps reel et les interfaces self-service pour convertir plus vite.",
-    highlight: "+18% de revenus additionnels sur les parcours optimises",
-    accent: "#00853F",
-  },
-  {
-    category: "Operations",
-    title: "L'IA predictive s'impose dans les operations aeriennes",
-    summary:
-      "Maintenance, rotation flotte et prevision de demande convergent vers des outils d'aide a la decision connectes aux donnees aeroportuaires et compagnies.",
-    highlight: "Maintenance et planification alimentees par la data live",
-    accent: "#E8622A",
-  },
-  {
-    category: "Distribution",
-    title: "Le couple NDC + mobile money accelere en Afrique de l'Ouest",
-    summary:
-      "Les acteurs regionaux cherchent a rapprocher distribution moderne, moyens de paiement locaux et reactivite commerciale pour mieux servir diaspora et voyageurs domestiques.",
-    highlight: "Paiement local et distribution internationale reunis",
-    accent: "#E31B23",
-  },
-];
+import { aviationNews } from "@/content/aviationNews";
 
 const sectorSignals = [
   "Hausse des attentes sur les paiements locaux et le remboursement rapide",
   "Demande croissante de portails passagers et d'automatisation post-achat",
-  "Pilotage commercial plus fin grace aux donnees tarifaires en continu",
+  "Pilotage commercial plus fin grâce aux données tarifaires en continu",
 ];
 
 export default function AviationNewsSection() {
@@ -102,9 +76,10 @@ export default function AviationNewsSection() {
 
         <div className="grid gap-6 xl:grid-cols-[1.3fr_0.7fr]">
           <div className="grid gap-6 md:grid-cols-3">
-            {featuredNews.map((item, index) => (
-              <article
-                key={item.title}
+            {aviationNews.map((item, index) => (
+              <Link
+                key={item.slug}
+                href={`/actualites/${item.slug}`}
                 className="reveal-scale shadow-card hover:shadow-card-hover group rounded-3xl border border-black/8 bg-light-bg p-7 transition-all duration-300 hover:-translate-y-1 hover:border-black/12"
                 style={{ transitionDelay: `${index * 110}ms` }}
               >
@@ -150,7 +125,7 @@ export default function AviationNewsSection() {
                   Lecture stratégique
                   <Icon name="ArrowRightIcon" size={13} />
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
 
@@ -161,7 +136,7 @@ export default function AviationNewsSection() {
               </div>
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
-                  Radar marche
+                  Radar marché
                 </p>
                 <h3 className="font-display mt-1 text-2xl font-bold">
                   À surveiller maintenant
@@ -196,10 +171,10 @@ export default function AviationNewsSection() {
             </div>
 
             <Link
-              href="/contact"
-              className="mt-8 inline-flex items-center gap-3 rounded-full bg-white px-6 py-3 text-sm font-semibold uppercase tracking-wider text-[#08110C] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#f8f7f2]"
+              href="/actualites"
+              className="mt-8 inline-flex items-center gap-3 rounded-full bg-jaune px-6 py-3 text-sm font-semibold uppercase tracking-wider text-[#08110C] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#f7e82b]"
             >
-              Échanger avec nos experts
+              Voir toutes les actualités
               <Icon name="ArrowRightIcon" size={15} />
             </Link>
           </aside>

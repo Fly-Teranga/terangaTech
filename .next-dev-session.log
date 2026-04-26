@@ -11,3 +11,29 @@ Creating turbopack project {
   testMode: true
 }
 
+ GET / 200 in 2.2s (next.js: 940ms, application-code: 1308ms)
+✓ Compiled in 11.2s
+ GET / 200 in 4.3s (next.js: 3.8s, application-code: 486ms)
+ GET / 200 in 582ms (next.js: 223ms, application-code: 358ms)
+ GET / 200 in 314ms (next.js: 31ms, application-code: 283ms)
+ GET / 200 in 1093ms (next.js: 11ms, application-code: 1082ms)
+ GET / 200 in 1600ms (next.js: 240ms, application-code: 1360ms)
+ GET / 200 in 1149ms (next.js: 11ms, application-code: 1138ms)
+ GET / 200 in 1150ms (next.js: 374ms, application-code: 776ms)
+ GET / 200 in 1155ms (next.js: 816ms, application-code: 339ms)
+ GET / 200 in 925ms (next.js: 80ms, application-code: 846ms)
+ GET /services 200 in 209ms (next.js: 140ms, application-code: 69ms)
+ GET /homepage 200 in 144ms (next.js: 81ms, application-code: 63ms)
+✓ Compiled in 1533ms
+ GET /homepage 200 in 532ms (next.js: 352ms, application-code: 180ms)
+ GET /homepage 200 in 57ms (next.js: 4ms, application-code: 53ms)
+ GET /homepage 200 in 440ms (next.js: 5ms, application-code: 434ms)
+ GET /services 200 in 214ms (next.js: 151ms, application-code: 63ms)
+ GET /homepage 200 in 45ms (next.js: 6ms, application-code: 38ms)
+ GET /services 200 in 58ms (next.js: 11ms, application-code: 48ms)
+✓ Compiled in 766ms
+ GET /services 200 in 508ms (next.js: 281ms, application-code: 228ms)
+ GET /services 200 in 118ms (next.js: 14ms, application-code: 104ms)
+ GET /homepage 200 in 1103ms (next.js: 782ms, application-code: 321ms)
+ GET /services 200 in 85ms (next.js: 19ms, application-code: 67ms)
+ GET /homepage 200 in 63ms (next.js: 10ms, application-code: 53ms)
