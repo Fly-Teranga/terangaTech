@@ -7,6 +7,8 @@ import ServicesAudience from "./components/ServicesAudience";
 import ServicesCTA from "./components/ServicesCTA";
 import { getAllServices } from "@/sanity/lib/content";
 
+export const dynamic = "force-dynamic";
+
 export default async function Services() {
   const services = await getAllServices();
 

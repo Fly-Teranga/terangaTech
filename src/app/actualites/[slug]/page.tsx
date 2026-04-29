@@ -6,16 +6,13 @@ import Footer from "@/components/Footer";
 import Icon from "@/components/ui/AppIcon";
 import { getAllActualites, getActualiteBySlug } from "@/sanity/lib/content";
 
+export const dynamic = "force-dynamic";
+
 type PageProps = {
   params: Promise<{
     slug: string;
   }>;
 };
-
-export async function generateStaticParams() {
-  const items = await getAllActualites();
-  return items.map((item) => ({ slug: item.slug }));
-}
 
 export default async function ActualiteDetailPage({ params }: PageProps) {
   const { slug } = await params;

@@ -9,6 +9,8 @@ import ModuleTabsSection from "./components/ModuleTabsSection";
 import HomeDemoSection from "./components/HomeDemoSection";
 import { getAllActualites, getAllServices } from "@/sanity/lib/content";
 
+export const dynamic = "force-dynamic";
+
 export default async function Homepage() {
   const [actualites, services] = await Promise.all([
     getAllActualites(),

@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import Icon from "@/components/ui/AppIcon";
 import { getAllActualites } from "@/sanity/lib/content";
 
+export const dynamic = "force-dynamic";
+
 export default async function ActualitesPage() {
   const aviationNews = await getAllActualites();
 
