@@ -16,72 +16,47 @@ type SanityNews = Partial<AviationNewsItem> & { slug?: string };
 type SanityService = Partial<ServiceOffer> & { slug?: string; id?: string };
 
 function normalizeNewsItem(item: SanityNews): AviationNewsItem | null {
-  if (
-    !item.slug ||
-    !item.category ||
-    !item.title ||
-    !item.summary ||
-    !item.highlight ||
-    !item.accent ||
-    !item.publishedAt ||
-    !item.readTime ||
-    !item.heroTitle ||
-    !item.intro ||
-    !item.sections ||
-    !item.keyPoints
-  ) {
+  if (!item.slug || !item.title) {
     return null;
   }
 
   return {
     slug: item.slug,
-    category: item.category,
+    category: item.category || "Actualites",
     title: item.title,
-    summary: item.summary,
-    highlight: item.highlight,
-    accent: item.accent,
+    summary: item.summary || "",
+    highlight: item.highlight || "",
+    accent: item.accent || "#00853F",
     image: item.image || null,
     imageAlt: item.imageAlt || "",
-    publishedAt: item.publishedAt,
-    readTime: item.readTime,
-    heroTitle: item.heroTitle,
-    intro: item.intro,
-    sections: item.sections,
-    keyPoints: item.keyPoints,
+    publishedAt: item.publishedAt || "",
+    readTime: item.readTime || "",
+    heroTitle: item.heroTitle || item.title,
+    intro: item.intro || item.summary || "",
+    sections: item.sections || [],
+    keyPoints: item.keyPoints || [],
   };
 }
 
 function normalizeServiceOffer(item: SanityService): ServiceOffer | null {
-  if (
-    !item.slug ||
-    !item.id ||
-    !item.tag ||
-    !item.color ||
-    !item.icon ||
-    !item.title ||
-    !item.headline ||
-    !item.description ||
-    !item.features ||
-    !item.audience ||
-    !item.metric
-  ) {
+  if (!item.slug || !item.id || !item.title) {
     return null;
   }
 
   return {
     id: item.id,
     slug: item.slug,
-    tag: item.tag,
-    color: item.color,
-    icon: item.icon,
+    tag: item.tag || "Service",
+    color: item.color || "#00853F",
+    icon: item.icon || "RocketLaunchIcon",
     title: item.title,
-    headline: item.headline,
-    description: item.description,
+    headline: item.headline || item.title,
+    description: item.description || "",
     image: item.image || null,
     imageAlt: item.imageAlt || "",
-    features: item.features,
-    audience: item.audience,
-    metric: item.metric,
+    features: item.features || [],
+    audience: item.audience || [],
+    metric: item.metric || { value: "", label: "" },
   };
 }
 
