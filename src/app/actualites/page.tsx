@@ -3,9 +3,11 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Icon from "@/components/ui/AppIcon";
-import { aviationNews } from "@/content/aviationNews";
+import { getAllActualites } from "@/sanity/lib/content";
 
-export default function ActualitesPage() {
+export default async function ActualitesPage() {
+  const aviationNews = await getAllActualites();
+
   return (
     <main className="min-h-screen bg-white">
       <Header />

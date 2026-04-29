@@ -3,15 +3,21 @@
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import Icon from "@/components/ui/AppIcon";
-import { aviationNews } from "@/content/aviationNews";
+import type { AviationNewsItem } from "@/content/aviationNews";
 
 const sectorSignals = [
   "Hausse des attentes sur les paiements locaux et le remboursement rapide",
   "Demande croissante de portails passagers et d'automatisation post-achat",
-  "Pilotage commercial plus fin grâce aux données tarifaires en continu",
+  "Pilotage commercial plus fin grace aux donnees tarifaires en continu",
 ];
 
-export default function AviationNewsSection() {
+type AviationNewsSectionProps = {
+  items: AviationNewsItem[];
+};
+
+export default function AviationNewsSection({
+  items,
+}: AviationNewsSectionProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -53,30 +59,30 @@ export default function AviationNewsSection() {
                 className="text-xs font-semibold uppercase tracking-[0.2em]"
                 style={{ color: "#E8622A" }}
               >
-                Actualités aéronautiques
+                Actualites aeronautiques
               </span>
             </div>
             <h2 className="font-display text-text-dark max-w-3xl text-4xl font-bold tracking-tight md:text-5xl">
               La veille secteur qui
               <br />
               <span className="text-text-muted font-normal">
-                impacte vos ventes, vos opérations et votre relation passager.
+                impacte vos ventes, vos operations et votre relation passager.
               </span>
             </h2>
           </div>
 
           <div className="reveal">
             <p className="text-text-muted max-w-xl text-sm leading-relaxed font-light md:text-base">
-              Teranga Tech suit les grandes tendances de l&apos;aéronautique pour aider
-              les agences, compagnies et assureurs à transformer l&apos;actualité en
-              décisions concrètes.
+              Teranga Tech suit les grandes tendances de l&apos;aeronautique pour aider
+              les agences, compagnies et assureurs a transformer l&apos;actualite en
+              decisions concretes.
             </p>
           </div>
         </div>
 
         <div className="grid gap-6 xl:grid-cols-[1.3fr_0.7fr]">
           <div className="grid gap-6 md:grid-cols-3">
-            {aviationNews.map((item, index) => (
+            {items.map((item, index) => (
               <Link
                 key={item.slug}
                 href={`/actualites/${item.slug}`}
@@ -122,7 +128,7 @@ export default function AviationNewsSection() {
                   className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 group-hover:gap-3"
                   style={{ color: item.accent }}
                 >
-                  Lecture stratégique
+                  Lecture strategique
                   <Icon name="ArrowRightIcon" size={13} />
                 </div>
               </Link>
@@ -136,10 +142,10 @@ export default function AviationNewsSection() {
               </div>
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
-                  Radar marché
+                  Radar marche
                 </p>
                 <h3 className="font-display mt-1 text-2xl font-bold">
-                  À surveiller maintenant
+                  A surveiller maintenant
                 </h3>
               </div>
             </div>
@@ -166,7 +172,7 @@ export default function AviationNewsSection() {
               </p>
               <p className="mt-3 text-sm leading-relaxed text-white/82">
                 Nous traduisons ces tendances en modules concrets: distribution,
-                automatisation, IA et expérience passager.
+                automatisation, IA et experience passager.
               </p>
             </div>
 
@@ -174,7 +180,7 @@ export default function AviationNewsSection() {
               href="/actualites"
               className="mt-8 inline-flex items-center gap-3 rounded-full bg-jaune px-6 py-3 text-sm font-semibold uppercase tracking-wider text-[#08110C] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#f7e82b]"
             >
-              Voir toutes les actualités
+              Voir toutes les actualites
               <Icon name="ArrowRightIcon" size={15} />
             </Link>
           </aside>
