@@ -52,12 +52,6 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="text-text-muted hero-reveal mb-14 flex flex-wrap items-center justify-center gap-6 text-[11px] font-semibold uppercase tracking-widest opacity-0">
-          <span className="flex items-center gap-2"><span className="bg-vert inline-block h-2 w-2 rounded-full" />Pitch Deck Investisseurs</span>
-          <span className="flex items-center gap-2"><span className="bg-jaune inline-block h-2 w-2 rounded-full" />Serie Seed</span>
-          <span className="flex items-center gap-2"><span className="bg-rouge inline-block h-2 w-2 rounded-full" />2026</span>
-        </div>
-
         <div className="hero-reveal flex flex-col items-center justify-center gap-4 opacity-0 sm:flex-row">
           <Link href="/services" className="bg-vert hover:bg-vert-light hover:shadow-vert group flex items-center gap-3 rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:-translate-y-0.5">
             D&eacute;couvrir nos services
