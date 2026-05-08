@@ -1,5 +1,6 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getServiceBySlug } from "@/sanity/lib/content";
+import { requireApiAdmin } from "@/lib/apiAdminAuth";
 
 type RouteProps = {
   params: Promise<{
@@ -7,7 +8,13 @@ type RouteProps = {
   }>;
 };
 
-export async function GET(_request: Request, { params }: RouteProps) {
+export async function GET(request: NextRequest, { params }: RouteProps) {
+  const authError = requireApiAdmin(request);
+
+  if (authError) {
+    return authError;
+  }
+
   const { slug } = await params;
   const item = await getServiceBySlug(slug);
 
