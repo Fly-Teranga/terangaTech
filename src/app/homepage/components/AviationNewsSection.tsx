@@ -73,9 +73,9 @@ export default function AviationNewsSection({
 
           <div className="reveal">
             <p className="text-text-muted max-w-xl text-sm leading-relaxed font-light md:text-base">
-              Teranga Tech suit les grandes tendances de l&apos;aeronautique pour aider
-              les agences, compagnies et assureurs a transformer l&apos;actualite en
-              decisions concretes.
+              FakiAirline suit les grandes tendances de l&apos;aéronautique pour aider
+              les agences, compagnies et assureurs à transformer l&apos;actualité en
+              décisions concrètes.
             </p>
           </div>
         </div>

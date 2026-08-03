@@ -29,8 +29,8 @@ export default function HeroSection() {
       <div ref={contentRef} className="relative z-10 mx-auto max-w-4xl text-center">
         <div className="hero-reveal mb-12 flex items-center justify-center gap-3 opacity-0">
           <span className="font-display font-bold" style={{ fontSize: "clamp(2.8rem, 7vw, 4.8rem)", lineHeight: 1.08, letterSpacing: "-0.01em" }}>
-            <span style={{ color: "#00853F" }}>teranga</span>
-            <span style={{ color: "#E8622A" }}>.fly</span>
+            <span style={{ color: "#00853F" }}>Faki</span>
+            <span style={{ color: "#E8622A" }}>Airline</span>
           </span>
           <svg className="flex-shrink-0" style={{ width: "clamp(2rem, 4vw, 3.4rem)", height: "clamp(2rem, 4vw, 3.4rem)", color: "#E8622A", marginLeft: "-4px" }} viewBox="0 0 24 24" fill="none">
             <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" fill="currentColor" />

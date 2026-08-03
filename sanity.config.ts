@@ -7,7 +7,7 @@ import { schemaTypes } from "./src/sanity/schemaTypes";
 
 export default defineConfig({
   name: "default",
-  title: "Teranga Tech Studio",
+  title: "FakiAirline Studio",
   projectId: projectId || "missing-project-id",
   dataset: dataset || "missing-dataset",
   basePath: studioBasePath,

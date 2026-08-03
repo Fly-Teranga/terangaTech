@@ -18,7 +18,7 @@ const actualiteStarterSections = [
   },
   {
     _type: "object",
-    title: "Lecture strategique Teranga Tech",
+    title: "Lecture strategique FakiAirline",
     paragraphs: [
       "Reliez cette actualite a vos offres, vos cas d'usage et votre vision produit.",
     ],
