@@ -32,7 +32,7 @@ export default function ServicesHero() {
           </div>
           <div className="lg:col-span-5 lg:pb-2">
             <p className="text-text-muted mb-8 text-base leading-relaxed font-light">
-              De la vente de billets a la gestion d&apos;assurance voyage, en passant par l&apos;optimisation IA des operations - Teranga Tech Solution couvre l&apos;integralite de la chaine de valeur aerienne.
+              De la vente de billets a la gestion d&apos;assurance voyage, en passant par l&apos;optimisation IA des operations - FakiAirline couvre l&apos;integralite de la chaine de valeur aerienne.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href="/contact" className="bg-vert hover:bg-vert-light hover:shadow-vert flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-all duration-300">

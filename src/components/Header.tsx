@@ -11,15 +11,15 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
-function TerangaFlyLogo({ size = 32 }: { size?: number }) {
+function FakiAirlineLogo({ size = 32 }: { size?: number }) {
   return (
     <div className="flex items-center gap-2">
       <span
         className="font-display font-bold"
         style={{ fontSize: size * 0.78, lineHeight: 1, letterSpacing: "-0.01em" }}
       >
-        <span style={{ color: "#00853F" }}>Teranga</span>
-        <span style={{ color: "#E8622A" }}>Tech</span>
+        <span style={{ color: "#00853F" }}>Faki</span>
+        <span style={{ color: "#E8622A" }}>Airline</span>
       </span>
       <svg
         width={size * 0.6}
@@ -62,7 +62,7 @@ export default function Header() {
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
           <Link href="/homepage" className="group flex items-center gap-2">
-            <TerangaFlyLogo size={36} />
+            <FakiAirlineLogo size={36} />
           </Link>
           <nav className="hidden items-center gap-1 rounded-full border border-black/8 bg-gray-50 px-2 py-1.5 md:flex">
             {navLinks.map((link) => (

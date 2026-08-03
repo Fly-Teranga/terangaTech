@@ -45,7 +45,7 @@ export default function ServicesCTA() {
             <h2 className="font-display mb-5 text-4xl font-semibold tracking-tight text-white md:text-5xl">
               Pret a decoller
               <br />
-              <span className="text-gradient-vert italic">avec Teranga Tech ?</span>
+              <span className="text-gradient-vert italic">avec FakiAirline ?</span>
             </h2>
             <p className="mb-10 text-base leading-relaxed font-light text-white/60">
               Planifiez une demo gratuite et decouvrez comment nos modules SaaS transforment votre activite aerienne en 7 jours.
