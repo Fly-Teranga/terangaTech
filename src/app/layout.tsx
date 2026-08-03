@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description:
     "FakiAirline concoit des plateformes SaaS et logiciels IA dedies au secteur aerien.",
   icons: {
-    icon: [{ url: "/favicon.ico", type: "image/x-icon" }],
+    icon: [{ url: "/icon.png", type: "image/png" }],
   },
 };
 
