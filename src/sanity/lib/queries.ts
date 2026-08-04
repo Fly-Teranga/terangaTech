@@ -1,5 +1,14 @@
 import { defineQuery } from "next-sanity";
 
+export const CONTACT_SETTINGS_QUERY = defineQuery(`
+  *[_id == "contactSettings" && _type == "contactSettings"][0] {
+    address,
+    email,
+    phoneNumbers,
+    openingHours
+  }
+`);
+
 export const ACTUALITES_QUERY = defineQuery(`
   *[_type == "actualite"] | order(publishedAt desc) {
     _id,

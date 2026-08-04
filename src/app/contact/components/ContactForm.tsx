@@ -29,6 +29,7 @@ export default function ContactForm() {
   const [form, setForm] = useState<FormData>(initialForm);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -47,13 +48,31 @@ export default function ContactForm() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+    setError("");
+
+    const formData = new FormData(e.currentTarget);
+    const body = new URLSearchParams();
+    formData.forEach((value, key) => {
+      if (typeof value === "string") body.append(key, value);
+    });
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString(),
+      });
+
+      if (!response.ok) throw new Error("Form submission failed");
       setLoading(false);
       setSubmitted(true);
-    }, 1200);
+    } catch {
+      setLoading(false);
+      setError("L’envoi a échoué. Veuillez réessayer ou nous écrire directement par e-mail.");
+    }
   };
 
   if (submitted) {
@@ -81,7 +100,12 @@ export default function ContactForm() {
           <p className="text-sm font-light text-white/45">Reponse garantie sous 24h ouvrees.</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-7">
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} className="space-y-7">
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="subject" value="Nouvelle demande de démo FakiAirline" />
+          <p className="hidden" aria-hidden="true">
+            <label>Ne pas remplir ce champ <input name="bot-field" /></label>
+          </p>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <div>
               <label className="mb-2 block text-xs uppercase tracking-widest text-white/35">Prenom *</label>
@@ -137,6 +161,8 @@ export default function ContactForm() {
             <label className="mb-2 block text-xs uppercase tracking-widest text-white/35">Votre message</label>
             <textarea name="message" value={form.message} onChange={handleChange} rows={4} className="form-input-dark resize-none" placeholder="Decrivez votre projet, vos besoins ou vos questions..." />
           </div>
+
+          {error && <p role="alert" className="rounded-xl border border-rouge/30 bg-rouge/10 px-4 py-3 text-sm text-white/85">{error}</p>}
 
           <button type="submit" disabled={loading} className="bg-vert hover:bg-vert-light hover:shadow-vert flex w-full items-center justify-center gap-3 rounded-full py-4 text-sm font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60">
             {loading ? (

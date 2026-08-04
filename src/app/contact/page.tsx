@@ -1,11 +1,16 @@
 import React from "react";
+import { connection } from "next/server";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactHero from "./components/ContactHero";
 import ContactForm from "./components/ContactForm";
 import ContactInfo from "./components/ContactInfo";
+import { getContactSettings } from "@/sanity/lib/content";
 
-export default function Contact() {
+export default async function Contact() {
+  await connection();
+  const contact = await getContactSettings();
+
   return (
     <main className="min-h-screen bg-white">
       <Header />
@@ -15,7 +20,7 @@ export default function Contact() {
           <ContactForm />
         </div>
         <div className="lg:col-span-5">
-          <ContactInfo />
+          <ContactInfo contact={contact} />
         </div>
       </div>
       <Footer />

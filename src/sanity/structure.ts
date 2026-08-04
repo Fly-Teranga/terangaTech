@@ -37,8 +37,17 @@ export const structure: StructureResolver = (S) =>
         .title("Services")
         .schemaType("service")
         .child(S.documentTypeList("service").title("Services")),
+      S.listItem()
+        .title("Informations de contact")
+        .schemaType("contactSettings")
+        .child(
+          S.document()
+            .documentId("contactSettings")
+            .schemaType("contactSettings")
+            .title("Informations de contact"),
+        ),
       ...S.documentTypeListItems().filter(
-        (item) => !["actualite", "service"].includes(item.getId() || ""),
+        (item) => !["actualite", "service", "contactSettings"].includes(item.getId() || ""),
       ),
     ]);
 

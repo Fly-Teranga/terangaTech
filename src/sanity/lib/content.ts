@@ -1,4 +1,5 @@
 import "server-only";
+import { defaultContactSettings, type ContactSettings } from "@/content/contactSettings";
 import type { AviationNewsItem } from "@/content/aviationNews";
 import { aviationNews, getAviationNewsBySlug } from "@/content/aviationNews";
 import type { ServiceOffer } from "@/content/serviceOffers";
@@ -8,12 +9,14 @@ import { getSanityClient } from "./client";
 import {
   ACTUALITE_BY_SLUG_QUERY,
   ACTUALITES_QUERY,
+  CONTACT_SETTINGS_QUERY,
   SERVICE_BY_SLUG_QUERY,
   SERVICES_QUERY,
 } from "./queries";
 
 type SanityNews = Partial<AviationNewsItem> & { slug?: string };
 type SanityService = Partial<ServiceOffer> & { slug?: string; id?: string };
+type SanityContactSettings = Partial<ContactSettings>;
 
 function normalizeNewsItem(item: SanityNews): AviationNewsItem | null {
   if (!item.slug || !item.title) {
@@ -112,4 +115,24 @@ export async function getServiceBySlug(slug: string) {
   });
 
   return normalizeServiceOffer(data || {}) || getServiceOfferBySlug(slug) || null;
+}
+
+export async function getContactSettings(): Promise<ContactSettings> {
+  if (!hasSanityConfig) {
+    return defaultContactSettings;
+  }
+
+  const client = getSanityClient().withConfig({ useCdn: false });
+  const data = await client.fetch<SanityContactSettings | null>(CONTACT_SETTINGS_QUERY);
+
+  if (!data?.address || !data.email || !data.phoneNumbers?.length || !data.openingHours?.length) {
+    return defaultContactSettings;
+  }
+
+  return {
+    address: data.address,
+    email: data.email,
+    phoneNumbers: data.phoneNumbers,
+    openingHours: data.openingHours,
+  };
 }

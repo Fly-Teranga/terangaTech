@@ -1,5 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import { connection } from "next/server";
+import { getContactSettings } from "@/sanity/lib/content";
 
 function TerangaFlyLogo({ size = 28 }: { size?: number }) {
   return (
@@ -27,7 +29,10 @@ function TerangaFlyLogo({ size = 28 }: { size?: number }) {
   );
 }
 
-export default function Footer() {
+export default async function Footer() {
+  await connection();
+  const contact = await getContactSettings();
+
   return (
     <footer className="border-black/8 bg-white border-t">
       <div className="mx-auto max-w-7xl px-6 py-16">
@@ -60,9 +65,11 @@ export default function Footer() {
             </div>
             <div className="flex flex-col gap-3">
               <span className="text-text-light text-xs font-semibold uppercase tracking-widest">Contact</span>
-              <span className="text-text-muted text-sm font-medium">Dakar, Senegal</span>
-              <a href="mailto:contact@terangatech.sn" className="text-text-muted hover:text-vert text-sm font-medium transition-colors">contact@terangatech.sn</a>
-              <a href="tel:+221338001234" className="text-text-muted hover:text-vert text-sm font-medium transition-colors">+221 33 800 12 34</a>
+              <span className="text-text-muted text-sm font-medium">{contact.address}</span>
+              <a href={`mailto:${contact.email}`} className="text-text-muted hover:text-vert text-sm font-medium transition-colors">{contact.email}</a>
+              {contact.phoneNumbers.map((phone) => (
+                <a key={phone} href={`tel:${phone.replace(/\s/g, "")}`} className="text-text-muted hover:text-vert text-sm font-medium transition-colors">{phone}</a>
+              ))}
             </div>
           </div>
         </div>

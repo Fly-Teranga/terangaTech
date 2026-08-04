@@ -257,6 +257,15 @@ const services = [
   },
 ];
 
+const contactSettings = {
+  _id: "contactSettings",
+  _type: "contactSettings",
+  address: "Dakar, Sénégal",
+  email: "contact@fakitechgroup.com",
+  phoneNumbers: ["+221 77 137 76 37", "+221 77 621 78 98"],
+  openingHours: ["Lun-Ven : 08h00-18h00", "Samedi : 09h00-13h00"],
+};
+
 async function seedDocuments(documents) {
   for (const document of documents) {
     await client.createOrReplace(document);
@@ -266,5 +275,6 @@ async function seedDocuments(documents) {
 
 await seedDocuments(actualites);
 await seedDocuments(services);
+await seedDocuments([contactSettings]);
 
 console.log("Sanity seed completed.");

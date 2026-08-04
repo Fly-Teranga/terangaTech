@@ -1,15 +1,17 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import type { ContactSettings } from "@/content/contactSettings";
 import Icon from "@/components/ui/AppIcon";
 import AppImage from "@/components/ui/AppImage";
 
-const contactDetails = [
-  { icon: "MapPinIcon", label: "Adresse", lines: ["Almadies, Dakar", "Senegal - BP 12450"], color: "#00853F" },
-  { icon: "PhoneIcon", label: "Telephone", lines: ["+221 33 800 12 34", "+221 77 800 12 34"], color: "#FDEF42", href: "tel:+221338001234" },
-  { icon: "EnvelopeIcon", label: "Email", lines: ["contact@terangatech.sn", "demo@terangatech.sn"], color: "#E31B23", href: "mailto:contact@terangatech.sn" },
-  { icon: "ClockIcon", label: "Horaires", lines: ["Lun-Ven : 08h00-18h00", "Samedi : 09h00-13h00"], color: "#00853F" },
-];
+type ContactDetail = {
+  icon: string;
+  label: string;
+  lines: string[];
+  color: string;
+  hrefs?: string[];
+};
 
 const modules = [
   { label: "Billetterie SaaS", color: "#00853F" },
@@ -17,8 +19,14 @@ const modules = [
   { label: "AssureTech Voyage", color: "#E31B23" },
 ];
 
-export default function ContactInfo() {
+export default function ContactInfo({ contact }: { contact: ContactSettings }) {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const contactDetails: ContactDetail[] = [
+    { icon: "MapPinIcon", label: "Adresse", lines: [contact.address], color: "#00853F" },
+    { icon: "PhoneIcon", label: "Téléphone", lines: contact.phoneNumbers, hrefs: contact.phoneNumbers.map((phone) => `tel:${phone.replace(/\s/g, "")}`), color: "#FDEF42" },
+    { icon: "EnvelopeIcon", label: "Email", lines: [contact.email], hrefs: [`mailto:${contact.email}`], color: "#E31B23" },
+    { icon: "ClockIcon", label: "Horaires", lines: contact.openingHours, color: "#00853F" },
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -48,8 +56,8 @@ export default function ContactInfo() {
               <div>
                 <p className="mb-1 text-xs font-medium uppercase tracking-wider text-white/35">{detail.label}</p>
                 {detail.lines.map((line, i) =>
-                  detail.href && i === 0 ? (
-                    <a key={line} href={detail.href} className="text-vert block text-sm font-medium text-white/80 transition-colors hover:text-vert">
+                  detail.hrefs?.[i] ? (
+                    <a key={line} href={detail.hrefs[i]} className="text-vert block text-sm font-medium text-white/80 transition-colors hover:text-vert">
                       {line}
                     </a>
                   ) : (
@@ -73,7 +81,7 @@ export default function ContactInfo() {
         <div className="from-dark/70 absolute inset-0 bg-gradient-to-t to-transparent" />
         <div className="glass-dark animate-float absolute bottom-4 left-4 flex items-center gap-2 rounded-xl px-4 py-2.5">
           <span className="bg-vert h-2 w-2 animate-ping rounded-full" />
-          <span className="text-xs font-semibold text-white">Dakar, Senegal</span>
+          <span className="text-xs font-semibold text-white">{contact.address}</span>
         </div>
       </div>
 
