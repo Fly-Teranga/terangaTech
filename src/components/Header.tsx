@@ -98,13 +98,17 @@ export default function Header() {
             </Link>
           </div>
           <button
+            type="button"
             onClick={() => setMenuOpen((open) => !open)}
-            className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-lg border border-black/8 bg-gray-50 md:hidden"
+            className="flex h-11 w-12 items-center justify-center rounded-md text-text-dark transition-colors hover:bg-black/5 focus-visible:ring-2 focus-visible:ring-vert focus-visible:ring-offset-2 md:hidden"
             aria-label="Menu"
+            aria-expanded={menuOpen}
           >
-            <span className={`bg-text-dark h-0.5 w-5 transition-all duration-300 ${menuOpen ? "translate-y-2 rotate-45" : ""}`} />
-            <span className={`bg-text-dark h-0.5 w-5 transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-            <span className={`bg-text-dark h-0.5 w-5 transition-all duration-300 ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+            <span className="relative block h-5 w-6" aria-hidden="true">
+              <span className={`bg-current absolute top-0 left-0 h-0.5 w-6 rounded-full transition-all duration-300 ${menuOpen ? "top-2 rotate-45" : ""}`} />
+              <span className={`bg-current absolute top-2 left-0 h-0.5 w-6 rounded-full transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+              <span className={`bg-current absolute top-4 left-0 h-0.5 w-6 rounded-full transition-all duration-300 ${menuOpen ? "top-2 -rotate-45" : ""}`} />
+            </span>
           </button>
         </div>
       </header>
