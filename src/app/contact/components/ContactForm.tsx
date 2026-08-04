@@ -42,7 +42,7 @@ export default function ContactForm() {
 
     sectionRef.current?.querySelectorAll(".reveal, .reveal-scale").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, []);
+  }, [submitted]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -81,7 +81,7 @@ export default function ContactForm() {
         <p className="mb-8 max-w-sm text-base leading-relaxed font-light text-white/55">
           Notre equipe vous contacte sous 24 heures ouvrees pour organiser votre demo personnalisee.
         </p>
-        <button onClick={() => { setForm(initialForm); setSubmitted(false); }} className="border-vert/30 text-vert hover:text-vert-light rounded-full border px-6 py-2.5 text-sm font-semibold transition-colors">
+        <button type="button" onClick={() => { setForm(initialForm); setSubmitted(false); }} className="border-vert/30 text-vert hover:text-vert-light rounded-full border px-6 py-2.5 text-sm font-semibold transition-colors">
           Nouvelle demande
         </button>
       </div>
