@@ -53,17 +53,13 @@ export default function ContactForm() {
     setLoading(true);
     setError("");
 
-    const formData = new FormData(e.currentTarget);
-    const body = new URLSearchParams();
-    formData.forEach((value, key) => {
-      if (typeof value === "string") body.append(key, value);
-    });
+    const botField = String(new FormData(e.currentTarget).get("bot-field") || "");
 
     try {
-      const response = await fetch("/", {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: body.toString(),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, botField }),
       });
 
       if (!response.ok) throw new Error("Form submission failed");
@@ -100,9 +96,7 @@ export default function ContactForm() {
           <p className="text-sm font-light text-white/45">Reponse garantie sous 24h ouvrees.</p>
         </div>
 
-        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={handleSubmit} className="space-y-7">
-          <input type="hidden" name="form-name" value="contact" />
-          <input type="hidden" name="subject" value="Nouvelle demande de démo FakiAirline" />
+        <form onSubmit={handleSubmit} className="space-y-7">
           <p className="hidden" aria-hidden="true">
             <label>Ne pas remplir ce champ <input name="bot-field" /></label>
           </p>
