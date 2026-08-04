@@ -47,7 +47,7 @@ export default function StatsSection() {
         </div>
 
         <div className="reveal mb-8">
-          <p className="text-vert mb-10 text-center text-xs font-semibold uppercase tracking-[0.2em]">Pourquoi Teranga Tech</p>
+          <p className="text-vert mb-10 text-center text-xs font-semibold uppercase tracking-[0.2em]">Pourquoi FakiAirline</p>
         </div>
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {differentiators.map((item, i) => (

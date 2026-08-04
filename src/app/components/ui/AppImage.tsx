@@ -7,7 +7,7 @@ type AppImageProps = Omit<ImageProps, "src" | "alt"> & {
 
 export default function AppImage({
   src = "/assets/images/no_image.png",
-  alt = "TerangaTech image",
+  alt = "FakiAirline image",
   ...props
 }: AppImageProps) {
   return <Image src={src} alt={alt} {...props} />;

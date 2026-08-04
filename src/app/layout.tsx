@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   ),
-  title: "Teranga Tech Solution - SaaS & IA pour l'Aviation",
+  title: "FakiAirline - SaaS & IA pour l'Aviation",
   description:
-    "Teranga Tech Solution concoit des plateformes SaaS et logiciels IA dedies au secteur aerien.",
+    "FakiAirline concoit des plateformes SaaS et logiciels IA dedies au secteur aerien.",
   icons: {
-    icon: [{ url: "/favicon.ico", type: "image/x-icon" }],
+    icon: [{ url: "/icon.png", type: "image/png" }],
   },
 };
 

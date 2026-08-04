@@ -3,15 +3,15 @@ import Link from "next/link";
 import { connection } from "next/server";
 import { getContactSettings } from "@/sanity/lib/content";
 
-function TerangaFlyLogo({ size = 28 }: { size?: number }) {
+function FakiAirlineLogo({ size = 28 }: { size?: number }) {
   return (
     <div className="flex items-center gap-1.5">
       <span
         className="font-display font-bold"
         style={{ fontSize: size * 0.78, lineHeight: 1, letterSpacing: "-0.01em" }}
       >
-        <span style={{ color: "#00853F" }}>Teranga</span>
-        <span style={{ color: "#E8622A" }}>Tech</span>
+        <span style={{ color: "#00853F" }}>Faki</span>
+        <span style={{ color: "#E8622A" }}>Airline</span>
       </span>
       <svg
         width={size * 0.58}
@@ -39,7 +39,7 @@ export default async function Footer() {
         <div className="flex flex-col items-start justify-between gap-10 lg:flex-row">
           <div className="max-w-xs flex-shrink-0">
             <Link href="/homepage" className="mb-4 flex items-center gap-2">
-              <TerangaFlyLogo size={32} />
+              <FakiAirlineLogo size={32} />
             </Link>
             <p className="text-text-muted text-sm leading-relaxed font-light">
               Le voyage en toute confiance, 100 % en ligne - premiere plateforme senegalaise de reservation de billets d&apos;avion.
@@ -74,7 +74,7 @@ export default async function Footer() {
           </div>
         </div>
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-black/5 pt-6 md:flex-row">
-          <p className="text-text-light text-xs">© 2026 TerangaTech - Teranga Tech Solution. Tous droits reserves.</p>
+          <p className="text-text-light text-xs">© 2026 FakiAirline. Tous droits reserves.</p>
           <div className="flex items-center gap-6">
             <Link href="/contact" className="text-text-light hover:text-text-muted text-xs transition-colors">Confidentialite</Link>
             <Link href="/contact" className="text-text-light hover:text-text-muted text-xs transition-colors">Conditions d&apos;utilisation</Link>
