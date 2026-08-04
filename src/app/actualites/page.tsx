@@ -19,15 +19,15 @@ export default async function ActualitesPage() {
           <div className="mb-4 flex items-center gap-3">
             <span className="bg-orange h-px w-8" />
             <span className="text-orange text-xs font-semibold uppercase tracking-[0.2em]">
-              Actualites
+              Actualités
             </span>
           </div>
           <h1 className="font-display text-text-dark max-w-4xl text-3xl font-bold tracking-tight md:text-5xl">
-            Veille aeronautique, signaux marche et analyses strategiques.
+            Veille aéronautique, signaux marché et analyses stratégiques.
           </h1>
           <p className="text-text-muted mt-7 max-w-2xl text-sm leading-8 font-light md:text-base">
-            Une lecture metier des tendances qui transforment la distribution,
-            les operations et l&apos;experience passager.
+            Une lecture métier des tendances qui transforment la distribution,
+            les opérations et l&apos;expérience passager.
           </p>
         </div>
       </section>
@@ -83,13 +83,13 @@ export default async function ActualitesPage() {
                 {item.highlight}
               </div>
               <div className="text-text-light mb-6 text-xs uppercase tracking-wider">
-                Publie le {item.publishedAt}
+                Publié le {item.publishedAt}
               </div>
               <div
                 className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 group-hover:gap-3"
                 style={{ color: item.accent }}
               >
-                Lire l&apos;analyse complete
+                Lire l&apos;analyse complète
                 <Icon name="ArrowRightIcon" size={13} />
               </div>
             </Link>

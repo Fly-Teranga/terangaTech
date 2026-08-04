@@ -31,7 +31,7 @@ export default async function ActualiteDetailPage({ params }: PageProps) {
             className="text-text-muted hover:text-vert mb-8 inline-flex items-center gap-2 text-sm font-medium transition-colors"
           >
             <Icon name="ArrowLeftIcon" size={16} />
-            Retour aux actualites
+            Retour aux actualités
           </Link>
           <div className="mb-5 flex flex-wrap items-center gap-3">
             <span
@@ -96,7 +96,7 @@ export default async function ActualiteDetailPage({ params }: PageProps) {
           </article>
           <aside className="h-fit rounded-[2rem] bg-dark p-8 text-white shadow-[0_26px_60px_rgba(8,17,12,0.24)]">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/55">
-              A retenir
+              À retenir
             </p>
             <div className="mt-6 space-y-4">
               {article.keyPoints.map((point) => (
@@ -118,7 +118,7 @@ export default async function ActualiteDetailPage({ params }: PageProps) {
               href="/contact"
               className="mt-8 inline-flex items-center gap-3 rounded-full bg-jaune px-6 py-3 text-sm font-semibold uppercase tracking-wider text-[#08110C] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#f7e82b]"
             >
-              Echanger avec nos experts
+              Échanger avec nos experts
               <Icon name="ArrowRightIcon" size={15} />
             </Link>
           </aside>

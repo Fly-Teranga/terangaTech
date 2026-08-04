@@ -60,14 +60,14 @@ export default function AviationNewsSection({
                 className="text-xs font-semibold uppercase tracking-[0.2em]"
                 style={{ color: "#E8622A" }}
               >
-                Actualites aeronautiques
+                Actualités aéronautiques
               </span>
             </div>
             <h2 className="font-display text-text-dark max-w-3xl text-4xl font-bold tracking-tight md:text-5xl">
               La veille secteur qui
               <br />
               <span className="text-text-muted font-normal">
-                impacte vos ventes, vos operations et votre relation passager.
+                impacte vos ventes, vos opérations et votre relation passager.
               </span>
             </h2>
           </div>
@@ -141,7 +141,7 @@ export default function AviationNewsSection({
                   className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 group-hover:gap-3"
                   style={{ color: item.accent }}
                 >
-                  Lecture strategique
+                  Lecture stratégique
                   <Icon name="ArrowRightIcon" size={13} />
                 </div>
               </Link>
@@ -155,7 +155,7 @@ export default function AviationNewsSection({
               </div>
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
-                  Radar marche
+                  Radar marché
                 </p>
                 <h3 className="font-display mt-1 text-2xl font-bold">
                   A surveiller maintenant
@@ -185,7 +185,7 @@ export default function AviationNewsSection({
               </p>
               <p className="mt-3 text-sm leading-relaxed text-white/82">
                 Nous traduisons ces tendances en modules concrets: distribution,
-                automatisation, IA et experience passager.
+                automatisation, IA et expérience passager.
               </p>
             </div>
 
@@ -193,7 +193,7 @@ export default function AviationNewsSection({
               href="/actualites"
               className="mt-8 inline-flex items-center gap-3 rounded-full bg-jaune px-6 py-3 text-sm font-semibold uppercase tracking-wider text-[#08110C] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#f7e82b]"
             >
-              Voir toutes les actualites
+              Voir toutes les actualités
               <Icon name="ArrowRightIcon" size={15} />
             </Link>
           </aside>
