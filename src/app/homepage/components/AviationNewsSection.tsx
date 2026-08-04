@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import Icon from "@/components/ui/AppIcon";
+import AppImage from "@/components/ui/AppImage";
 import type { AviationNewsItem } from "@/content/aviationNews";
 
 const sectorSignals = [
@@ -89,6 +90,18 @@ export default function AviationNewsSection({
                 className="reveal-scale shadow-card hover:shadow-card-hover group rounded-3xl border border-black/8 bg-light-bg p-7 transition-all duration-300 hover:-translate-y-1 hover:border-black/12"
                 style={{ transitionDelay: `${index * 110}ms` }}
               >
+                {item.image && (
+                  <div className="mb-6 overflow-hidden rounded-2xl">
+                    <AppImage
+                      src={item.image}
+                      alt={item.imageAlt || item.title}
+                      width={720}
+                      height={420}
+                      quality={75}
+                      className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                )}
                 <div className="mb-5 flex items-center justify-between gap-4">
                   <span
                     className="rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest"

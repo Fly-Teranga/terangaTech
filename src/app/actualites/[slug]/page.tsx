@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Icon from "@/components/ui/AppIcon";
+import AppImage from "@/components/ui/AppImage";
 import { getAllActualites, getActualiteBySlug } from "@/sanity/lib/content";
 
 export const dynamic = "force-dynamic";
@@ -61,6 +62,18 @@ export default async function ActualiteDetailPage({ params }: PageProps) {
       <section className="bg-light-bg px-6 py-16">
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.72fr_0.28fr]">
           <article className="rounded-[2rem] border border-black/6 bg-white p-8 md:p-12">
+            {article.image && (
+              <div className="mb-10 overflow-hidden rounded-3xl">
+                <AppImage
+                  src={article.image}
+                  alt={article.imageAlt || article.title}
+                  width={1200}
+                  height={675}
+                  quality={75}
+                  className="h-auto w-full object-cover"
+                />
+              </div>
+            )}
             <div className="space-y-10">
               {article.sections.map((section) => (
                 <section key={section.title}>
